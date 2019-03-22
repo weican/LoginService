@@ -16,6 +16,7 @@ public class UserDetailsSrvice  implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername( String username) throws UsernameNotFoundException {
+
         Employee employee = employeeMapper.findEmployeeByEmail(username);
         if(employee == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
